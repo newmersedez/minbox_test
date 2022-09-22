@@ -23,7 +23,10 @@ namespace AreaLibrary.Models
         public double GetFigureArea()
         {
             var p = (_a + _b + _c) / 2;
-            return Math.Round(Math.Sqrt(p * (p - _a) * (p - _b) * (p - _c)));
+            var area = Math.Sqrt(p * (p - _a) * (p - _b) * (p - _c));
+            if (double.IsPositiveInfinity(area))
+                throw new OverflowException("Overflow occured");
+            return area;
         }
 
         public bool RightAngled()

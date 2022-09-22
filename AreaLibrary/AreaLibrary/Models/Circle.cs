@@ -13,7 +13,12 @@ namespace AreaLibrary.Models
             _radius = radius;
         }
 
-        public double GetFigureArea() => 
-            Math.Round(_radius * _radius * Math.PI);
+        public double GetFigureArea()
+        {
+            var area = _radius * _radius * Math.PI;
+            if (double.IsPositiveInfinity(area))
+                throw new OverflowException("Overflow occured");
+            return area;
+        }
     }
 }
