@@ -1,3 +1,4 @@
+using System;
 using AreaLibrary.Models.Base;
 
 namespace AreaLibrary.Models
